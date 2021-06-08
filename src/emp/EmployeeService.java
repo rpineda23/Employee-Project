@@ -6,5 +6,4 @@ public interface EmployeeService {
 	public Employee findByEmployeeNum(int empNum);
 	public void updateEmployee(Employee emp1);
 	public void deleteEmployee(Employee emp1);
-	
 }

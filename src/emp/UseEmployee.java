@@ -5,15 +5,11 @@ import java.util.Scanner;
 
 public class UseEmployee {
 	public static void main(String[] args) {
-		//Create employeeserviceiple object to call implemented method
-		//create menu choice
-		//1. list imployee call displayAll Employee()
-			//2. display salaray 
-		//3. display specific emplyee details
-			//4. modify employee details 
 		EmployeeServiceImpl solution = new EmployeeServiceImpl();
 		Scanner scan = new Scanner(System.in);
+		
 		boolean running = true;
+		
 		while(running) {
 			printMain();
 			int select = scan.nextInt();

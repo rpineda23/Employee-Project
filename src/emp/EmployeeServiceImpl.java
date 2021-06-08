@@ -1,10 +1,6 @@
 package emp;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService{
 	ArrayList<Employee> list = new ArrayList<Employee>() {
@@ -27,63 +23,17 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 	
 	public Employee findByEmployeeNum(int empNum) {
-		/*for(Employee emplist: list) {
-			if(empNum == emplist.getEmpNum()) {
-				return emplist;
-			}
-		}
-		return null;*/
 		ArrayList<Employee> temp =(ArrayList<Employee>)list.
 				stream().filter(w ->w.getEmpNum() == empNum).collect(Collectors.toList());
-				if(temp.isEmpty()) {
+				if(temp.isEmpty()){
 					return null;
-				}else {
+				}
+				else{
 					return temp.get(0);
 				}
 	}
 	
 	public void updateEmployee(Employee emp1) {
-		/*for(Employee emplist: list) {
-			if(emp1.getEmpName().equals(emplist.getEmpName())) {
-				
-				Scanner scan = new Scanner(System.in);
-				System.out.println("Which employee detail would you like to modify?");
-				System.out.println("1. Employee Name.");
-				System.out.println("2. Employee Number.");
-				System.out.println("3. Employee Address.");
-				System.out.println("4. Employee Salary.");
-				int i = scan.nextInt();
-				switch(i) {
-				case 1:
-					System.out.println("What is the new name?");
-					String name = scan.nextLine();
-					emplist.setEmpName(name);
-					scan.close();
-					break;
-				case 2: 
-					System.out.println("What is the new number?");
-					int number = scan.nextInt();
-					emplist.setEmpNum(number);
-					scan.close();
-					break;
-				case 3: 
-					System.out.println("What is the new address?");
-					String add = scan.nextLine();
-					emplist.setCity(add);//
-					scan.close();
-					break;
-				case 4: 
-					System.out.println("What is the new salary?");
-					double salary = scan.nextDouble();
-					emplist.setSalary(salary);
-					scan.close();
-					break;
-				default:
-					scan.close();
-					break;
-				}
-			}
-		}	*/
 		Employee select = list.stream().filter(var->var.getEmpNum() == emp1.getEmpNum())
 				.findFirst().orElse(null);
 			select.setEmpName(emp1.getEmpName());
